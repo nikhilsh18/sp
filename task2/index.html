@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">🌗</button>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar">
+  <h1>Task 2</h1>
+  <ul class="nav-links">
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#todo">To-Do</a></li>
+  </ul>
+</nav>
+
+<!-- ===== MAIN GRID ===== -->
+<main class="grid-wrapper">
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Form</h2>
+    <form id="contactForm">
+      <label>Name *
+        <input type="text" name="name" required>
+      </label>
+
+      <label>Email *
+        <input type="email" name="email" required>
+      </label>
+
+      <label>Phone
+        <input type="tel" name="phone" placeholder="+1 (555) 123-4567">
+        <small id="phoneHint" style="color:#888"></small>
+      </label>
+
+      <label>Subject
+        <select name="subject">
+          <option>General inquiry</option>
+          <option>Support</option>
+          <option>Business proposal</option>
+        </select>
+      </label>
+
+      <label>Message *
+        <textarea name="message" rows="3" maxlength="200" required></textarea>
+        <small><span id="charCount">0</span>/200</small>
+      </label>
+
+      <button type="submit">Send Message</button>
+      <p id="formMsg" class="msg"></p>
+    </form>
+  </section>
+
+  <!-- To-Do Section -->
+  <section id="todo" class="section">
+    <h2>To-Do List</h2>
+    <div class="controls">
+      <input type="text" id="taskInput" placeholder="Add new task">
+      <button id="addTaskBtn">Add</button>
+    </div>
+    <ul id="taskList"></ul>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

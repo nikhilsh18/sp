@@ -1,0 +1,174 @@
+ :root {
+      --bg: #f4f4f4;
+      --fg: #333;
+      --accent: #3498db;
+      --error: #e74c3c;
+      --ok: #2ecc71;
+    }
+
+    [data-theme="dark"] {
+      --bg: #1e1e2f;
+      --fg: #f4f4f4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      transition: background 1s, color .4s;
+      overflow-x: hidden;
+    }
+
+    /* ========= ANIMATED BACKGROUND ========= */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a18cd1, #fbc2eb, #8fd3f4);
+      background-size: 300% 300%;
+      animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ========= NAVBAR (Flexbox) ========= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(0,0,0,0.15);
+      backdrop-filter: blur(6px);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    /* ========= GRID WRAPPER ========= */
+    .grid-wrapper {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 768px) {
+      .grid-wrapper {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .section {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    [data-theme="dark"] .section {
+      background: rgba(0,0,0,0.25);
+    }
+
+    /* ========= FORM STYLES ========= */
+    label {
+      display: block;
+      margin-bottom: .5rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: .5rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(0,0,0,.1);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.7);
+      color: var(--fg);
+    }
+
+    [data-theme="dark"] input,
+    [data-theme="dark"] select,
+    [data-theme="dark"] textarea {
+      background: rgba(0,0,0,0.3);
+      border-color: rgba(255,255,255,.2);
+    }
+
+    button {
+      padding: .6rem 1.2rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .msg {
+      font-size: .9rem;
+      margin-top: .5rem;
+    }
+
+    /* ========= TO-DO ========= */
+    .controls {
+      display: flex;
+      gap: .5rem;
+    }
+
+    #taskList {
+      margin-top: 1rem;
+      list-style: none;
+    }
+
+    #taskList li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .5rem;
+      margin-bottom: .4rem;
+      background: rgba(0,0,0,.05);
+      border-radius: 4px;
+    }
+
+    [data-theme="dark"] #taskList li {
+      background: rgba(255,255,255,.05);
+    }
+
+    #taskList button {
+      background: var(--error);
+      padding: .2rem .5rem;
+      font-size: .8rem;
+    }
+
+    /* ========= DARK-MODE TOGGLE ========= */
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      padding: .5rem .8rem;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+    }
